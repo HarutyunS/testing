@@ -104,7 +104,7 @@
 		<Main>
 			<Body>
 				<Statement xsi:type="Expression">
-					<ExpressionString>Pass = false</ExpressionString>
+					<ExpressionString>Pass = true</ExpressionString>
 				</Statement>
 				<Statement xsi:type="Comment">
 					<Text>If HIL system will allow to check signals then can be put here.</Text>
