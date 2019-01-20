@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RealTimeSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FileFormatVersion Major="2012" Minor="0" Fix="0" Build="0" />
+	<Version Major="1" Minor="0" Fix="0" Build="10" />
+	<References>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\Wait.nivsseq</Path>
+			<Alias>Wait</Alias>
+		</Reference>
+	</References>
+	<Variables>
+		<ReturnType>
+			<Identifier>Pass</Identifier>
+			<DefaultValue xsi:type="BooleanValue">
+				<Value>false</Value>
+			</DefaultValue>
+		</ReturnType>
+		<Parameters>
+			<ParameterDeclaration>
+				<Identifier>AccelPedalCh1</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Accel Pedal Ch1" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>AccelPedalCh2</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Accel Pedal ch2" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>PowerCPU</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Power CPU 12V" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>IgnitionCPU</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Ignition CPU 12V" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>PowerBoard</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Power Board 12V" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>BreakPedal</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Breack Pedal 12V" />
+			</ParameterDeclaration>
+		</Parameters>
+		<LocalVariables>
+			<LocalDeclaration>
+				<Identifier>timeout</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>1</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+		</LocalVariables>
+		<ChannelReferences />
+	</Variables>
+	<Code>
+		<Setup>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Wait(timeout*3)</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>PowerCPU = false</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>PowerBoard = false</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>IgnitionCPU = false</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>AccelPedalCh1 = 0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>AccelPedalCh2 = 0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>BreakPedal = false</ExpressionString>
+				</Statement>
+			</Body>
+		</Setup>
+		<Main>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Pass = true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Comment">
+					<Text>If HIL system will allow to check signals then can be put here.</Text>
+				</Statement>
+			</Body>
+		</Main>
+		<CleanUp>
+			<Body>
+				<Statement xsi:type="Comment">
+					<Text>If something goes wrong switch off all </Text>
+				</Statement>
+			</Body>
+		</CleanUp>
+	</Code>
+</RealTimeSequence>
